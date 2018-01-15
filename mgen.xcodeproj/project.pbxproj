@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE28D90020077C7A00078087 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE28D8FF20077C7A00078087 /* Options.swift */; };
+		BE295F8D200C92C500657CF1 /* PatternCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE295F8C200C92C500657CF1 /* PatternCommand.swift */; };
+		BE295F90200C92EB00657CF1 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE295F8F200C92EB00657CF1 /* PrintCommand.swift */; };
+		BEABD767200C852600F3E380 /* DirectoryFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEABD766200C852600F3E380 /* DirectoryFabric.swift */; };
 		BEB4DEFD2006931A003D4506 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DEFC2006931A003D4506 /* main.swift */; };
 		BEB4DF0520069440003D4506 /* OutputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DF0420069440003D4506 /* OutputType.swift */; };
 		BEB4DF0720069A07003D4506 /* MGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DF0620069A07003D4506 /* MGen.swift */; };
 		BEB4DF0920069D9E003D4506 /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DF0820069D9E003D4506 /* Printable.swift */; };
 		BEB4DF0C20072623003D4506 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DF0B20072623003D4506 /* Localization.swift */; };
+		BEB4DF1120075A88003D4506 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DF1020075A88003D4506 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +32,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BE28D8FF20077C7A00078087 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		BE295F8C200C92C500657CF1 /* PatternCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCommand.swift; sourceTree = "<group>"; };
+		BE295F8F200C92EB00657CF1 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
+		BEABD766200C852600F3E380 /* DirectoryFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFabric.swift; sourceTree = "<group>"; };
 		BEB4DEF92006931A003D4506 /* mgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB4DEFC2006931A003D4506 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BEB4DF0420069440003D4506 /* OutputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputType.swift; sourceTree = "<group>"; };
 		BEB4DF0620069A07003D4506 /* MGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGen.swift; sourceTree = "<group>"; };
 		BEB4DF0820069D9E003D4506 /* Printable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		BEB4DF0B20072623003D4506 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		BEB4DF1020075A88003D4506 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BEABD768200C853C00F3E380 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BEABD766200C852600F3E380 /* DirectoryFabric.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BEB4DEF02006931A003D4506 = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +83,12 @@
 		BEB4DEFB2006931A003D4506 /* mgen */ = {
 			isa = PBXGroup;
 			children = (
+				BEB4DEFC2006931A003D4506 /* main.swift */,
+				BEABD768200C853C00F3E380 /* Helpers */,
 				BEB4DF0D20072E17003D4506 /* Protocols */,
 				BEB4DF0A200720C6003D4506 /* Resources */,
 				BEB4DF0320069429003D4506 /* Models */,
 				BEB4DF0620069A07003D4506 /* MGen.swift */,
-				BEB4DEFC2006931A003D4506 /* main.swift */,
 			);
 			path = mgen;
 			sourceTree = "<group>";
@@ -77,7 +96,10 @@
 		BEB4DF0320069429003D4506 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE28D8FF20077C7A00078087 /* Options.swift */,
 				BEB4DF0420069440003D4506 /* OutputType.swift */,
+				BE295F8F200C92EB00657CF1 /* PrintCommand.swift */,
+				BE295F8C200C92C500657CF1 /* PatternCommand.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				BEB4DF0B20072623003D4506 /* Localization.swift */,
+				BEB4DF1020075A88003D4506 /* Config.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,8 +180,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB4DF0520069440003D4506 /* OutputType.swift in Sources */,
+				BE28D90020077C7A00078087 /* Options.swift in Sources */,
 				BEB4DF0C20072623003D4506 /* Localization.swift in Sources */,
+				BE295F90200C92EB00657CF1 /* PrintCommand.swift in Sources */,
 				BEB4DEFD2006931A003D4506 /* main.swift in Sources */,
+				BEABD767200C852600F3E380 /* DirectoryFabric.swift in Sources */,
+				BE295F8D200C92C500657CF1 /* PatternCommand.swift in Sources */,
+				BEB4DF1120075A88003D4506 /* Config.swift in Sources */,
 				BEB4DF0720069A07003D4506 /* MGen.swift in Sources */,
 				BEB4DF0920069D9E003D4506 /* Printable.swift in Sources */,
 			);

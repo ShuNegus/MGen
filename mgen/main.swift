@@ -10,5 +10,6 @@ import Foundation
 
 let mgen = MGen()
 
-mgen.printAbout()
-
+var arguments = CommandLine.arguments
+arguments.removeFirst()
+mgen.startWithArguments(arguments)
