@@ -34,18 +34,21 @@ class MGen: Printable {
         
         if let printCommand = printCommand {
             workWithPrinCommand(printCommand)
+            exit(EXIT_SUCCESS)
         }
         
         if let patternCommand = patternCommand, let moduleName = value {
             if moduleName.contains(" ") {
                 writeMessage(Localization.inputError, to: .error)
-                return
+                exit(EXIT_FAILURE)
             }
             workWithPatternCommand(patternCommand, moduleName: moduleName)
+            exit(EXIT_SUCCESS)
         }
         
         if let configurationCommand = configurationCommand, let configurationValue = value {
             updateConfiguration(configurationCommand, value: configurationValue)
+            exit(EXIT_SUCCESS)
         }
         
         writeMessage(Localization.inputError, to: .error)
@@ -71,7 +74,7 @@ class MGen: Printable {
         let currentDirectoryPath = URL(fileURLWithPath: fileManager.currentDirectoryPath).appendingPathComponent(moduleName + "Module")
         guard fileManager.fileExists(atPath: templateDirectoryPath.path) else {
             writeMessage(templateDirectoryPath.path + " " + Localization.templateDirectoryError, to: .error)
-            return
+            exit(EXIT_FAILURE)
         }
         
         do {
