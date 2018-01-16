@@ -23,10 +23,12 @@ class MGen: Printable {
                 patternCommand = _patternCommand
             } else if let _configurationCommand = ConfigurationCommand(rawValue: argument), configurationCommand == nil {
                 configurationCommand = _configurationCommand
-            } else if value == nil {
-                value = argument
             } else {
-                writeMessage(Localization.inputError, to: .error)
+                if let newValue = value {
+                    value = newValue + " " + argument
+                } else {
+                    value = argument
+                }
             }
         }
         
@@ -35,6 +37,10 @@ class MGen: Printable {
         }
         
         if let patternCommand = patternCommand, let moduleName = value {
+            if moduleName.contains(" ") {
+                writeMessage(Localization.inputError, to: .error)
+                return
+            }
             workWithPatternCommand(patternCommand, moduleName: moduleName)
         }
         
