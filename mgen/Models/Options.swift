@@ -8,31 +8,3 @@
 
 import Foundation
 
-/*
-extension Array where Iterator.Element == Option {
-    
-    var moduleName: String? {
-        for option in self {
-            switch option {
-            case .module(let name):
-                return name
-            default: continue
-            }
-        }
-        return nil
-    }
-    
-    var patternType: Option? {
-        for option in self {
-            switch option {
-            case .mvp:
-                return .mvp
-            case .mvvm:
-                return .mvvm
-            default: continue
-            }
-        }
-        return nil
-    }
-}
-*/
