@@ -9,7 +9,7 @@
 import Foundation
 
 class Config {
-    static let version = "0.1"
+    static let version = "0.1.1"
     static let defaultCreater = "MGen"
     static let defaultCopyright = "IOS Developer"
 }
