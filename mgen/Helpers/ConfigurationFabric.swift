@@ -15,8 +15,8 @@ class ConfigurationFabric {
             return configuration?[kCreater] ?? Config.defaultCreater
         }
         set {
-            var newConfiguration = configuration
-            newConfiguration?[kCreater] = newValue
+            var newConfiguration = configuration ?? [:]
+            newConfiguration[kCreater] = newValue
             configuration = newConfiguration
         }
     }
@@ -26,8 +26,8 @@ class ConfigurationFabric {
             return configuration?[kCopyright] ?? Config.defaultCopyright
         }
         set {
-            var newConfiguration = configuration
-            newConfiguration?[kCopyright] = newValue
+            var newConfiguration = configuration  ?? [:]
+            newConfiguration[kCopyright] = newValue
             configuration = newConfiguration
         }
     }
