@@ -10,6 +10,8 @@
 		BE28D90020077C7A00078087 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE28D8FF20077C7A00078087 /* Options.swift */; };
 		BE295F8D200C92C500657CF1 /* PatternCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE295F8C200C92C500657CF1 /* PatternCommand.swift */; };
 		BE295F90200C92EB00657CF1 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE295F8F200C92EB00657CF1 /* PrintCommand.swift */; };
+		BE4954C7200DCEF5002BF371 /* ConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4954C6200DCEF5002BF371 /* ConfigurationCommand.swift */; };
+		BE4954C9200DD1F7002BF371 /* ConfigurationFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4954C8200DD1F7002BF371 /* ConfigurationFabric.swift */; };
 		BEABD767200C852600F3E380 /* DirectoryFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEABD766200C852600F3E380 /* DirectoryFabric.swift */; };
 		BEB4DEFD2006931A003D4506 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DEFC2006931A003D4506 /* main.swift */; };
 		BEB4DF0520069440003D4506 /* OutputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4DF0420069440003D4506 /* OutputType.swift */; };
@@ -35,6 +37,8 @@
 		BE28D8FF20077C7A00078087 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		BE295F8C200C92C500657CF1 /* PatternCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCommand.swift; sourceTree = "<group>"; };
 		BE295F8F200C92EB00657CF1 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
+		BE4954C6200DCEF5002BF371 /* ConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationCommand.swift; sourceTree = "<group>"; };
+		BE4954C8200DD1F7002BF371 /* ConfigurationFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationFabric.swift; sourceTree = "<group>"; };
 		BEABD766200C852600F3E380 /* DirectoryFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFabric.swift; sourceTree = "<group>"; };
 		BEB4DEF92006931A003D4506 /* mgen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mgen; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB4DEFC2006931A003D4506 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				BEABD766200C852600F3E380 /* DirectoryFabric.swift */,
+				BE4954C8200DD1F7002BF371 /* ConfigurationFabric.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 				BEB4DF0420069440003D4506 /* OutputType.swift */,
 				BE295F8F200C92EB00657CF1 /* PrintCommand.swift */,
 				BE295F8C200C92C500657CF1 /* PatternCommand.swift */,
+				BE4954C6200DCEF5002BF371 /* ConfigurationCommand.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 				BEB4DEFD2006931A003D4506 /* main.swift in Sources */,
 				BEABD767200C852600F3E380 /* DirectoryFabric.swift in Sources */,
 				BE295F8D200C92C500657CF1 /* PatternCommand.swift in Sources */,
+				BE4954C7200DCEF5002BF371 /* ConfigurationCommand.swift in Sources */,
 				BEB4DF1120075A88003D4506 /* Config.swift in Sources */,
 				BEB4DF0720069A07003D4506 /* MGen.swift in Sources */,
 				BEB4DF0920069D9E003D4506 /* Printable.swift in Sources */,
+				BE4954C9200DD1F7002BF371 /* ConfigurationFabric.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

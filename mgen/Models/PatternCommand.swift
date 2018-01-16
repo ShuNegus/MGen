@@ -12,6 +12,7 @@ enum PatternCommand {
     
     case mvp
     case mvvm
+    case custom
     
     var directory: String {
         switch self {
@@ -19,6 +20,8 @@ enum PatternCommand {
             return "MVP"
         case .mvvm:
             return "MVVM"
+        case .custom:
+            return "CUSTOM"
         }
     }
     
@@ -28,6 +31,8 @@ enum PatternCommand {
             self = .mvp
         case "-mvvm":
             self = .mvvm
+        case "-custom":
+            self = .custom
         default:
             return nil
         }

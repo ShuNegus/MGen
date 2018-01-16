@@ -11,17 +11,20 @@ import Foundation
 class MGen: Printable {
     
     func startWithArguments(_ arguments: [String]) {
-        var moduleName: String?
+        var value: String?
         var printCommand: PrintCommand?
         var patternCommand: PatternCommand?
+        var configurationCommand: ConfigurationCommand?
         
         for argument in arguments {
             if let _printCommand = PrintCommand(rawValue: argument), printCommand == nil {
                 printCommand = _printCommand
             } else if let _patternCommand = PatternCommand(rawValue: argument), patternCommand == nil {
                 patternCommand = _patternCommand
-            } else if moduleName == nil {
-                moduleName = argument
+            } else if let _configurationCommand = ConfigurationCommand(rawValue: argument), configurationCommand == nil {
+                configurationCommand = _configurationCommand
+            } else if value == nil {
+                value = argument
             } else {
                 writeMessage(Localization.inputError, to: .error)
             }
@@ -31,8 +34,12 @@ class MGen: Printable {
             workWithPrinCommand(printCommand)
         }
         
-        if let patternCommand = patternCommand, let moduleName = moduleName {
+        if let patternCommand = patternCommand, let moduleName = value {
             workWithPatternCommand(patternCommand, moduleName: moduleName)
+        }
+        
+        if let configurationCommand = configurationCommand, let configurationValue = value {
+            updateConfiguration(configurationCommand, value: configurationValue)
         }
         
         writeMessage(Localization.inputError, to: .error)
@@ -74,6 +81,9 @@ class MGen: Printable {
         let date = dateFormatter.string(from: dateNow)
         dateFormatter.dateFormat = "yyyy"
         let year = dateFormatter.string(from: dateNow)
+        let configurationFabric = ConfigurationFabric()
+        let creater = configurationFabric.creater
+        let copyright = configurationFabric.copyright
         
         let fileEnumerator = fileManager.enumerator(at: templateDirectoryPath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles, errorHandler: nil)
         while let element = fileEnumerator?.nextObject() as? URL {
@@ -83,21 +93,23 @@ class MGen: Printable {
                 do {
                     guard !isDirectory.boolValue else {
                         let newPath = element.path.replacingOccurrences(of: templateDirectoryPath.path + "/", with: "")
-                        let resultPath = currentDirectoryPath.appendingPathComponent(newPath)
+                        let modulePath = newPath.replacingOccurrences(of: "%MODULENAME%", with: moduleName)
+                        let resultPath = currentDirectoryPath.appendingPathComponent(modulePath)
                         try fileManager.createDirectory(at: resultPath, withIntermediateDirectories: false, attributes: nil)
                         continue
                     }
                     
                     if let fileContent = try? String(contentsOf: element) {
                         // Setup file
-                        var resultFile = fileContent.replacingOccurrences(of: TemplateKeys.kCreater, with: "")
-                        resultFile = resultFile.replacingOccurrences(of: TemplateKeys.kCopyright, with: year + " " + "")
+                        var resultFile = fileContent.replacingOccurrences(of: TemplateKeys.kCreater, with: creater)
+                        resultFile = resultFile.replacingOccurrences(of: TemplateKeys.kCopyright, with: year + " " + copyright)
                         resultFile = resultFile.replacingOccurrences(of: TemplateKeys.kDate, with: date)
+                        resultFile = resultFile.replacingOccurrences(of: "%MODULENAME%", with: moduleName)
                         let fileName = element.lastPathComponent
-                        let filePath = element.path.replacingOccurrences(of: fileName, with: moduleName+fileName)
+                        let filePath = element.path.replacingOccurrences(of: fileName, with: fileName.replacingOccurrences(of: "%MODULENAME%", with: moduleName))
                         let newPath = filePath.replacingOccurrences(of: templateDirectoryPath.path + "/", with: "")
                         let resultPath = currentDirectoryPath.appendingPathComponent(newPath)
-                        try resultFile.write(to: resultPath, atomically: true, encoding: .utf16)
+                        try resultFile.write(to: resultPath, atomically: true, encoding: .utf8)
                     } else {
                         let newPath = element.path.replacingOccurrences(of: templateDirectoryPath.path + "/", with: "")
                         let resultPath = currentDirectoryPath.appendingPathComponent(newPath)
@@ -110,6 +122,16 @@ class MGen: Printable {
                 }
                 
             }
+        }
+    }
+    
+    private func updateConfiguration(_ command: ConfigurationCommand, value: String) {
+        let configurationFabric = ConfigurationFabric()
+        switch command {
+        case .copyright:
+            configurationFabric.copyright = value
+        case .creater:
+            configurationFabric.creater = value
         }
     }
     
